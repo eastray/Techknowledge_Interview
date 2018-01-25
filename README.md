@@ -2,6 +2,6 @@
 
 ### index
 
-- 개발 기초
+- 기본 상식 (Basic Sense)
 - Java
 
