@@ -82,7 +82,7 @@ UDP(User Datagram Protocol)는 데이터를 데이터그램 단위로 처리하�
 
 TCP는 연결 지향형 프로토콜로, 통신을 위해서 호스트간의 연결이 필요하며 통신이 끝난 후에는 연결을 종료해야 한다. 연결 성립에는 3-Way Handshake 방식을 사용한다.
 
-![TCP_연결성립](/Users/dhkim/Documents/Personal/Techknowledge_Interview/imege/TCP_연결성립.png)
+![TCP_연결성립](./imege/TCP_연결성립.png)
 
 - 클라이언트는 서버에 접속을 요청하는 SYN 패킷을 전송한다.
 - 서버는 클라이언트의 요청인 SYN을 받고 클라이언트에게 요청에 대한 응답으로 ACK와 SYN 패킷을 송신한다.
@@ -90,7 +90,7 @@ TCP는 연결 지향형 프로토콜로, 통신을 위해서 호스트간의 연
 
 연결 해제를 위해 4-Way Handshake 방식을 사용하며, 과정의 아래와 같다.
 
-![TCP_연결해제](/Users/dhkim/Documents/Personal/Techknowledge_Interview/imege/TCP_연결해제.png)
+![TCP_연결해제](./imege/TCP_연결해제.png)
 
 - 클라이언트는 연결의 종료를 의미하는 FIN 패킷을 송신한다.
 - 서버는 클라이언트의 FIN 패킷을 수신하고 그에 대한 응답으로 ACK 패킷을 전송한다. 그 후 서버는 데이터를 모두 송신할 때까지 TIME_OUT이 된다.
@@ -99,7 +99,7 @@ TCP는 연결 지향형 프로토콜로, 통신을 위해서 호스트간의 연
 - 클라이언트의 ACK 패킷을 받은 서버는 TCP 소켓 연결을 Close한다.
 - 클라이언트는 서버로부터 아직 받지 못한 데이터가 있을경우를 대비해 일정 시간동안 세션을 남겨 놓은 후 대기한다. (TIME_WAIT)
 
-![TCP플래그](/Users/dhkim/Documents/Personal/Techknowledge_Interview/imege/TCP플래그.png)
+![TCP플래그](./imege/TCP플래그.png)
 
 
 
