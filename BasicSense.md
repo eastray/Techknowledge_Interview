@@ -134,9 +134,9 @@ MVC 패턴이란, 하나의 웹 어플리케이션을 Model, View, Controller �
 
 #### Ref
 
-- [객체 지향에 대한 이해 / 객체 지향적 설계] http://asfirstalways.tistory.com/177
-- [Part 1-1 Development common sense] https://github.com/JaeYeopHan/Interview_Question_for_Beginner/tree/master/Development_common_sense#object-oriented-programming
-- [RESTful API] http://meetup.toast.com/posts/92
-- [바쁜 개발자들을 위한 REST 논문요약] https://blog.npcode.com/2017/03/02/%EB%B0%94%EC%81%9C-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%93%A4%EC%9D%84-%EC%9C%84%ED%95%9C-rest-%EB%85%BC%EB%AC%B8-%EC%9A%94%EC%95%BD/
-- [MVC 패턴이란] https://m.blog.naver.com/PostView.nhn?blogId=jhc9639&logNo=220967034588&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F
-- [MVC 모델(패턴)이란?] http://blog.daum.net/gunsu0j/165
+- [객체 지향에 대한 이해 / 객체 지향적 설계](http://asfirstalways.tistory.com/177)
+- [Part 1-1 Development common sense](https://github.com/JaeYeopHan/Interview_Question_for_Beginner/tree/master/Development_common_sense#object-oriented-programming)
+- [RESTful API](http://meetup.toast.com/posts/92)
+- [바쁜 개발자들을 위한 REST 논문요약](https://blog.npcode.com/2017/03/02/%EB%B0%94%EC%81%9C-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%93%A4%EC%9D%84-%EC%9C%84%ED%95%9C-rest-%EB%85%BC%EB%AC%B8-%EC%9A%94%EC%95%BD/)
+- [MVC 패턴이란](https://m.blog.naver.com/PostView.nhn?blogId=jhc9639&logNo=220967034588&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F)
+- [MVC 모델(패턴)이란?](http://blog.daum.net/gunsu0j/165)

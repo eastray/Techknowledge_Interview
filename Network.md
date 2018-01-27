@@ -16,7 +16,6 @@
 
 - Ref
 
-  
 
 ### OSI 7 계층
 
@@ -115,9 +114,9 @@ To do
 
 ### Ref
 
-- [OSI 7 계층] https://blog.naver.com/madplay/220404207107
-- [Network] https://github.com/JaeYeopHan/Interview_Question_for_Beginner/tree/master/Network
-- [GET과 POST의 차이] https://blog.outsider.ne.kr/312
-- [네트워크 전송 GET, POST 비교] http://interconnection.tistory.com/72
-- [TCP와 UDP 프로토콜] http://mintnlatte.tistory.com/306
-- [TCP와 UDP 차이 그리고 TCP/IP] https://m.blog.naver.com/PostView.nhn?blogId=madplay&logNo=220511097703&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F
+- [OSI 7 계층](https://blog.naver.com/madplay/220404207107)
+- [Network](https://github.com/JaeYeopHan/Interview_Question_for_Beginner/tree/master/Network)
+- [GET과 POST의 차이](https://blog.outsider.ne.kr/312)
+- [네트워크 전송 GET, POST 비교](http://interconnection.tistory.com/72)
+- [TCP와 UDP 프로토콜](http://mintnlatte.tistory.com/306)
+- [TCP와 UDP 차이 그리고 TCP/IP](https://m.blog.naver.com/PostView.nhn?blogId=madplay&logNo=220511097703&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F)
