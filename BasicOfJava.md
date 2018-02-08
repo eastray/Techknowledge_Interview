@@ -2,7 +2,7 @@
 
 ### index
 
-- JVM (Java Virtual Machine)
+- [JVM (Java Virtual Machine)](#jvm-(java-virtual-machine))
 
 - GC (Garbage Collection)
 
@@ -255,7 +255,7 @@ Java Collection에는 List, Map, Set 인터페이스를 기준으로 여러 구�
 
 - List
 
-  List 인터페이스를 사용자가 직접 @Override를 통해 정의하여 사용할 수 있다. 대표적으로 ArrayList가 기본의 Vector를 개선한 것이다. 데이터 구조적인 측면에서는 배열이라 생각하면 쉽지만, 내부적으로는 Red Black Tree로 구성되어 있다.
+  List 인터페이스를 사용자가 직접 @Override를 통해 정의하여 사용할 수 있다. 대표적으로 ArrayList가 기본의 Vector를 개선한 것이다. 데이터 구조적인 측면에서는 배열이라 생각하면 쉽지만, 내부적으로는 Red Black Tree로 구성되어 있다. ArrayList의 단점은 멀티 스레드 환경에서 동기화 문제를 가지고 있다.
 
 - Map
 
