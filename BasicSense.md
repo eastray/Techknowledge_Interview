@@ -7,7 +7,8 @@
 - TDD
 - MVC 패턴
 - 다형성
-- 트랜잭션
+- 트랜잭션 (Transaction)
+- 메모이제이션 (Memoization)
 - Ref
 
 
@@ -147,9 +148,39 @@ MVC 패턴이란, 하나의 웹 어플리케이션을 Model, View, Controller �
 
 
 
-#### 트랜잭션 (Transaction)
+### 트랜잭션 (Transaction)
 
 하나의 작업 단위를 의미한다. 어떤 비즈니스 로직에서 몇 가지 작어 중 하나라도 실패한다면, 작업이 시작되기 바로 직전으로 되돌아가는 것을 롤백 (Rollback)이라 하며, 이는 예외 처리를 통해 처리할 수 있다.
+
+
+
+### 메모이제이션 (Memoization)
+
+메모이제이션은 컴퓨터 프로그램이 동일한 계산을 반복해야 할 때, 이전에 계산한 값을 메모리에 저장함으로써 동일한 계산의 반복 수행을 제거하여 프로그램 실행 속도를 빠르게 하는 기술을 말한다. 동적 계획법의 핵심이 되는 기술이며, 재귀 호출시에 이를 사용하면 유용하다. 반복적으로 계산되는 연산의 횟수를 이전의 값들을 재사용함으로써 크게 줄일 수 있따.
+
+대표적인 예로 피보나치 수열에 접목함으로써 불필요한 연산을 피할 수 있다. 메모이제이션이 접목되지 않는 피보나치 수열의 코드는 아래와 같다.
+
+```java
+fib(n){
+  if n is 1 or 2, return 1;
+  retur fib(n - 1) + fib(n - 2);
+}
+```
+
+이때 fib 함수가 재귀적으로 실행되면서 같은 인자 값에 대해 계속해서 반복됨으로, 전체 실행 시간은 [Ω](https://ko.wikipedia.org/wiki/%EC%A0%90%EA%B7%BC_%ED%91%9C%EA%B8%B0%EB%B2%95)(1.6n) 이다. 그러나 fib(n)의 값을 계산하고 저장하여 (Memoize) 재사용함으로써 실행 시간을 [Θ](https://ko.wikipedia.org/wiki/%EC%A0%90%EA%B7%BC_%ED%91%9C%EA%B8%B0%EB%B2%95)(n)으로 줄일 수 있다. 
+
+```java
+allocate array for memo, setting all entries to zero;
+initialize memo[1] and memo[2] to 1;
+
+fib(n) {
+   if memo[n] is zero:
+       memo[n] = fib(n-1) + fib(n-2);
+   return memo[n];
+}
+```
+
+
 
 
 
@@ -162,3 +193,4 @@ MVC 패턴이란, 하나의 웹 어플리케이션을 Model, View, Controller �
 - [바쁜 개발자들을 위한 REST 논문요약](https://blog.npcode.com/2017/03/02/%EB%B0%94%EC%81%9C-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%93%A4%EC%9D%84-%EC%9C%84%ED%95%9C-rest-%EB%85%BC%EB%AC%B8-%EC%9A%94%EC%95%BD/)
 - [MVC 패턴이란](https://m.blog.naver.com/PostView.nhn?blogId=jhc9639&logNo=220967034588&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F)
 - [MVC 모델(패턴)이란?](http://blog.daum.net/gunsu0j/165)
+- [메모이제이션](https://ko.wikipedia.org/wiki/%EB%A9%94%EB%AA%A8%EC%9D%B4%EC%A0%9C%EC%9D%B4%EC%85%98)
