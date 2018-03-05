@@ -13,7 +13,8 @@
 
 
 
-#### 순열 (Permutation)
+
+### 순열 (Permutation)
 
 순열은 중복없이 n개 중에서 r개를 뽑아 순서를 정해 나열하는 경우에 사용된다. n개 중 r개를 택해 일렬로 정령하는 방법의 수는 첫 번째 자리의 문자를 택하는 경우의 수(n)와 남은 문자 중 두 번째 자리에 놓는 경우의 수(n-1)를 곱한 것과 같다. 서로 다른 n개에서 r개를 선택하는 순열의 모든 경우의 수는 nPr로 표시된다.
 
@@ -72,7 +73,7 @@ depth에 따라서 for 문의 시작점은 다르다. depth가 0이라면 1XXX, 
 
 
 
-#### 조합
+### 조합 (Combination)
 
 중복없이 n개 중 r개를 순서에 상관없이 뽑는 것이다. 대표적인 예로 시간이 서로 다른 4 과목 A, B, C, D 중 2 개만 선택해서 수강 신청하는 경우는 [A, B], [A, C], [A, D], [B, C], [B, D], [C, D]가 있다. 조합을 구하는 공식은 아래와 같다.
 
@@ -119,3 +120,10 @@ public static void combination (int[] arr, int index, int n, int r, int target) 
 ```
 
 다른 조합 코드와는 다르게 n의 값을 줄이는방법 이외에 target의 값을 증가 시킨다.
+
+
+
+### 중복 순열 (Redundant Permutations), 중복 조합 (Redundant Combination)
+
+todo
+
