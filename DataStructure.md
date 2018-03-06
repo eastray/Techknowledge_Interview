@@ -121,5 +121,3 @@
 - [Part 1-2 DataStructure](https://github.com/JaeYeopHan/Interview_Question_for_Beginner/tree/master/DataStructure#array-vs-linkedlist)
 - [트리(Tree)](http://blog.eairship.kr/215)
 - [그래프](https://gist.github.com/singun/1d628d0e3d66c60f9856)
-- 깊이 우선 탐색 (DFS, Depth First Search)
-- ​

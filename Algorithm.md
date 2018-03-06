@@ -6,13 +6,109 @@
 
 ### index
 
+- 깊이 우선 탐색 (Depth First Search)
+- 인접 행렬 (Adjacency Matrix)
+- 너비 우선 탐색 (Breadth First Search)
 - 순열 (Permutation)
 - 조합 (Combination)
 - 중복 순열 (Redundant Permutations), 중복 조합 (Redundant Combination)
-- 다익스트라 (Dijkstra)
+- 다익스트라 (Dijkstra) 
 
 
 
+
+### 깊이 우선 탐색 (Depth First Search)
+
+아래의 각 노드를 정점(Vertex)이라 하고, 정점간의 선을 간선(Edge)라 한다. 깊이 우선 탐색은 한 정점을 시작으로 더 이상 깊게 들어갈 길이 없을 때까지 탐색하는 알고리즘을 말한다. 
+
+![DFS](./imege/DFS.png)
+
+위와 같은 그림에서 1번 정점을 시작으로 탐색을 할 경우, 탐색 순서는 ```1 -> 2-> 4 -> 8 -> 5 -> 6 -> 3 -> 7``` 순으로 탐색이 진행된다.
+
+![DFS_Flow](./imege/DFS_Flow.png)
+
+위와 같은 방법을 정점과 정점 사이의 인접 관계를 나타내기 위해서 인접 행렬(Adjacency Matrix)를 사용할수 있다. 
+
+깊이 우선 탐색은 현 경로상의 모든 정점들만을 기억하면 되기 때문에 저장 공간의 수요가 비교적 적으며, 목표 정점이 깊은 단계에 있을 경우 해를 빨리 구할 수 있다. 하지만 해가 없는 경로에 깊이 빠질 가능성이 크며, 얻어진 해가 최단 경로가 된다는 보장은 없다.
+
+```java
+package dfs;
+
+public class DFSUsingAdjacencyMatrix {
+
+	static int n = 8;
+	static int[] visit = new int[n + 1];
+	static int[][] matrix = new int[n + 1][n + 1];
+
+	private int[][] createMatrix(String edge) {
+
+		for (int i = 0; i < edge.length(); i = i + 2) {
+			int a = Integer.parseInt(edge.substring(i, i + 1));
+			int b = Integer.parseInt(edge.substring(i + 1, i + 2));
+
+			matrix[a][b] = matrix[b][a] = 1;
+		}
+
+		return matrix;
+
+	}
+
+	private void dfs(int start) {
+		visit[start] = 1;
+
+		for (int i = 1; i <= n; i++) {
+			if (matrix[start][i] == 1 && visit[i] == 0) {
+				System.out.println(start + " --> " + i);
+
+				dfs(i);
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+
+		int start = 1;
+
+		DFSUsingAdjacencyMatrix dfs = new DFSUsingAdjacencyMatrix();
+
+		String edge = "12132425485836376878";
+
+		dfs.createMatrix(edge);
+
+		for (int[] elements : matrix) {
+
+			for (int ele : elements)
+				System.out.print(ele + " ");
+
+			System.out.println();
+		}
+
+		dfs.dfs(start);
+
+	}
+}
+
+```
+
+
+
+-----
+
+### 인접 행렬 (Adjacency Matrix)
+
+인접 행렬이란 정점의 인접 관계를 행렬을 통해 나타내는 것을 말한다. 
+
+![인접행렬](./imege/인접행렬.png)
+
+정점 i와 정점 j가 서로 연결되어 있는 관계일 경우에는 (i, j)가 1이며, 연결되지 않았을 경우에는 (i, j)에 0이 들어간다. 인접 행렬은 대각선을 기준으로 대칭이 되며, 정점 1과 정점 3이 연결되어 있는 상태일 경우 (1, 3)과 (3, 1)이 1이어야 한다.
+
+-----
+
+### 너비 우선 탐색 (Breadth First Search)
+
+
+
+-----
 
 ### 순열 (Permutation)
 
@@ -71,7 +167,7 @@ depth에 따라서 for 문의 시작점은 다르다. depth가 0이라면 1XXX, 
 
 이 때 배열의 값을 바꾸는 일반적인 swap 함수를 두 번 사용한다. depth와 k의 값이 같을 때, 이를 출력하고 트리의 해당 노드의 상위 노드로 되돌아가야하기 때문이다. 실행을 해보면 각 자리를 순열하는 값이 출력된다.
 
-
+-----
 
 ### 조합 (Combination)
 
@@ -121,9 +217,16 @@ public static void combination (int[] arr, int index, int n, int r, int target) 
 
 다른 조합 코드와는 다르게 n의 값을 줄이는방법 이외에 target의 값을 증가 시킨다.
 
-
+-----
 
 ### 중복 순열 (Redundant Permutations), 중복 조합 (Redundant Combination)
 
 todo
 
+-----
+
+### ref
+
+- [깊이 우선 탐색](http://blog.eairship.kr/268)
+- [깊이 우선 탐색_wiki](https://ko.wikipedia.org/wiki/%EA%B9%8A%EC%9D%B4_%EC%9A%B0%EC%84%A0_%ED%83%90%EC%83%89)
+- [너비 우선 탐색](http://blog.eairship.kr/269?category=431859)
