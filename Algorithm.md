@@ -76,7 +76,6 @@ public class DFSUsingAdjacencyMatrix {
 		dfs.createMatrix(edge);
 
 		for (int[] elements : matrix) {
-
 			for (int ele : elements)
 				System.out.print(ele + " ");
 
@@ -105,6 +104,89 @@ public class DFSUsingAdjacencyMatrix {
 -----
 
 ### 너비 우선 탐색 (Breadth First Search)
+
+너비 우선 탐색은 트리나 그래프에서이 탐색에 사용되는 알고리즘으로, 깊이가 1인 모든 정점을 탐색하고, 그 다음 깊이가 2인 모든 정점을 탐색한다. 최종적으로 깊이가 n인 모든 정점을 탐색한 후 더 이상 탐색할 곳이 없으면 탐색을 마친다. 
+
+![BFS](./imege/BFS.png)
+
+너비 우선 탐색은 먼저 가까운 정점부터 시작하여 가장 먼 정점까지의 탐색을 시작한다. 깊이 우선 탐색은 스택을 통해 재귀 호출을 이용하였지만, 너비 우선 탐색은 탐색한 정점의위치를 기억하기 위해 큐르 이용한다.
+
+![BFS_Flow](./imege/BFS_Flow.png)
+
+위의 그림에서 너비 우선 탐색으로 탐색할 경우 탐색 순서는 1 -> 2 -> 3 -> 4 -> 5 -> 6이 된다. 
+
+![BFS_큐](./imege/BFS_큐.png)
+
+- 깊이 0은 정점 1밖에 존재하지 않으므로 정점 1에서 시작한다. 큐에 1이 들어간다.
+- 깊이 1은 정점 2와 정점 3이 존재하며, 큐에서 1을 빼고 2와 3이 들어간다.
+- 깊이 2는 정점 4, 정점 5, 정점 6이  존재하며, 큐에서 2를 빼고 2와 인접한 4, 5를 삽입한다.
+- 다음 큐에서 3을 빼며, 정점 3과 인접한 정점 6을 넣는다.
+- 정점 4는 이미 탐색된 상태임으로 참색할 필요없이 4를 뺀다. 이때 정점 4와 인접한 정점 2, 3, 5, 6은 이미 방문된 상태임으로 탐색할 필요가 없다.
+- 큐에서 5를 빼고, 이미 탐색이 끝난 정점들 밖에 없음으로 탐색이 생략된다.
+- 마지막으로 정점 6을 빼면서, 정점 6과 인접한 모든 정점을 탐색했음으로 탐색을 마친다.
+
+큐가 비어있다는것은 기작 정점과 연결된 모든 정점들을 탐색했음을 의미한다. 
+
+```java
+package bfs;
+
+public class BFS {
+
+	static int n = 0;
+	static int rear, front = 0;
+	static int[][] matrix = new int[30][30];
+	static int[] queue = new int[30];
+	static int[] visited = new int[30];
+
+	public void bfs(int v) {
+		visited[v] = 1;
+		queue[rear++] = v;
+
+		while (front < rear) {
+			v = queue[front++];
+
+			for (int i = 1; i <= n; i++) {
+				if (matrix[v][i] == 1 && visited[i] != 1) {
+
+					visited[i] = 1;
+					System.out.println(v + " --> " + i);
+
+					queue[rear++] = i;
+
+				}
+			}
+		}
+	}
+
+	private int[][] createMatrix(String edge) {
+
+		for (int i = 0; i < edge.length(); i = i + 2) {
+			int a = Integer.parseInt(edge.substring(i, i + 1));
+			int b = Integer.parseInt(edge.substring(i + 1, i + 2));
+
+			matrix[a][b] = matrix[b][a] = 1;
+		}
+		return matrix;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		n = 6;
+		int start = 1;
+
+		BFS bfs = new BFS();
+
+		bfs.createMatrix("121324253436454656");
+		bfs.bfs(start);
+
+	}
+}
+```
+
+
+
+
 
 
 
@@ -215,7 +297,7 @@ public static void combination (int[] arr, int index, int n, int r, int target) 
 }
 ```
 
-다른 조합 코드와는 다르게 n의 값을 줄이는방법 이외에 target의 값을 증가 시킨다.
+다른 조합 코드와는 다르게 n의 값을 줄이는 방법 이외에 target의 값을 증가 시킨다.
 
 -----
 
