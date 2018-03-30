@@ -330,7 +330,7 @@ public class GenericDemo {
 
 - final method
 
-  해당 메소드를 오버라이드 하거나 숨길수 없음을 의미한다.
+  해당 메소드를 오버라이드 하거나 숨길 수 없음을 의미한다.
 
 - final variable
 
