@@ -1,53 +1,34 @@
-## Basic of JAVA
+## ㅌBasic of JAVA
 
 ### index
 
 - JVM (Java Virtual Machine)
-
 - GC (Garbage Collection)
-
 - String, StringBuilder, StringBuffer
-
 - Collection
-
 - Annotation
-
 - Reflection
-
 - Generic
-
 - final
-
 - static
-
 - Abstract Class
-
 - Interface
-
 - 추상 클래스와 인터페이스 차이
-
 - Overriding, Overloading
-
 - Access Modifier
-
 - Wrapper Class
-
 - Boxing, UnBoxing
-
 - AutoBoxing, AutoUnBoxing
-
 - Call By Value & Call By Reference
-
 - Exception
-
 - Ref
 
-  ​
 
+-----
 
-### JVM (Java Virtual Machine)
+## JVM (Java Virtual Machine)
 
-프로그램을 실행시키기 위한 물리적 머신과 유사한 머신을 소프트웨어로 구현한 것을 가상 머신이라 부르며, 자바 환경에서 소프트웨어로 구현된 가상 머신을 자바 가상 머신(JVM, Java Virtual Machine)이라 한다. 자바 어플리케이션을 클래스 로더를 통해 읽어 들여 자바 API와 함께 실행하는 것을 의미하며, 자바 클래스 로더 (Java Class Loader)는 자바 클래스를 자바 가상 머신으로 동적 로드하는 자바 런타임 환경(JRE, Java Runtime Environment)이다. 자바는 동적으로 클래스를 읽어오며 런타임에 모든 코드가 JVM에 링크된다. 모든 클래스는 그 클래스가 참조되는 순간 동적으로 JVM에게 링크되며 메모리에 적재된다. JVM은 JAVA와 OS 사이에서 중계자 역할을 하며, JAVA가 OS에 구애받지 않고 재사용 할 수 있는 기능을 지원한다. Garbage Collection을 통해 동적으로 할당한 메모리 영역 중 일부 사용하지 않는 영역을 해제하여 메모리를 관리한다. JVM은 스택 기반의 가상 머신이다.
+프로그램을 실행시키기 위한 물리적 머신과 유사한 머신을 소프트웨어로 구현한 것을 가상 머신(Virtual Machine)이라 부르며, 자바 환경에서 소프트웨어로 구현된 가상 머신을 자바 가상 머신(JVM, Java Virtual Machine)이라 한다. 자바 어플리케이션을 클래스 로더를 통해 읽어 들여 자바 API와 함께 실행하는 것을 의미하며, 자바 클래스 로더(Java Class Loader)는 자바 클래스를 자바 가상 머신으로 동적 로드하는 자바 런타임 환경(JRE, Java Runtime Environment)이다. 자바는 동적으로 클래스를 읽어오며 런타임에 모든 코드가 JVM에 링크된다. 모든 클래스는 그 클래스가 참조되는 순간 동적으로 JVM에게 링크되며 메모리에 적재된다. JVM은 JAVA와 OS 사이에서 중계자 역할을 하며, JAVA가 OS에 구애받지 않고 재사용 할 수 있는 기능을 지원한다. Garbage Collection을 통해 동적으로 할당한 메모리 영역 중 일부 사용하지 않는 영역을 해제하여 메모리를 관리한다. JVM은 스택 기반의 가상 머신이다.
 
 우리가 JVM을 학습하는 이유는 메모리의 효율성을 극대화하기 위해 메모리 구조에 대한 이해가 필요하며, 이를 관리하는 개체를 이해함으로써 속도 저하 현상 또는 튕김 현상 방지 등의 버그 및 에러를 처리하며 효율성을 극대화하기 위함이다.
 
@@ -130,7 +111,7 @@ JVM의 전체적인 흐름은 아래와 같다.
 
 -----
 
-### GC (Garbage Collection)
+## GC (Garbage Collection)
 
 가비지 컬렉션은 프로그래머가 사용하지 않는 객체를 대신 소실(Destroying)시킴으로써, 힙 메모리를 관리한다. 기본적으로 백 그라운드에서 운용되는 데몬 스레드이다. 가비지 컬렉션이 힙을 관리하는 과정은 아래와 같다. 가비지 컬렉터는 힙 메모리 내의 객체 중 사용되지 않는 객체를 가비지(Garbage)로 정하고 이를 처리하여 힙 메모리를 회수한다.
 
@@ -138,7 +119,7 @@ JVM의 전체적인 흐름은 아래와 같다.
 
 - Minor GC
 
-  새로 생성되는 객체는 Eden 영역에 위치하며, GC가 한 번 발생항 후 소실되지 않은 객체는 Survivor 영역으로 이동한다. 이 과정을 반복하다가 계속해서 살아남은 객체는 일정 시간동안 참조되고 있음을 뜻하기에 Old 영역으로 이동된다.
+  새로 생성되는 객체는 Eden 영역에 위치하며, GC가 한 번 발생한 후 소실되지 않은 객체는 Survivor 영역으로 이동한다. 이 과정을 반복하다가 계속해서 살아남은 객체는 일정 시간동안 참조되고 있음을 뜻하기에 Old 영역으로 이동된다.
 
 
 - Major GC
@@ -159,19 +140,19 @@ JVM의 전체적인 흐름은 아래와 같다.
 
   4: 메서드 영역의 정젹 변수에 의한 참조
 
-  위의 4가지 경우 중 2, 3, 4 번의 경우 Root Set이라 한다. 참조 사슬 중 최초에 참조한 것을 의미한다. 빈번한 가비지 컬렉션의 실행은 시스템에 부담이 될 수 있다. 따라서 성능에 영향일 미치지 않도록 별도의 알고리즘 기반의 계산을 통해 가비지 컬렉션의 실행 타이밍을 기준으로 가비지 컬렉션이 수행된다.
+  위의 4가지 경우 중 2, 3, 4 번의 경우 Root Set이라 한다. 참조 사슬 중 최초에 참조한 것을 의미한다. 빈번한 가비지 컬렉션의 실행은 시스템에 부담이 될 수 있다. 따라서 성능에 영향을 미치지 않도록 별도의 알고리즘 기반의 계산을 통해 가비지 컬렉션의 실행 타이밍을 기준으로 가비지 컬렉션이 수행된다.
 
   ![JavaMemory](./imege/JavaMemory.png)
 
 -----
 
-### String, StringBuilder, String Buffer
+## String, StringBuilder, String Buffer
 
 먼저 String, StringBuilder, String Buffer에 대한 내용에 들어기가 전에 불변 객체(Immutable Object)에 대해 알아보도록 한다. 
 
 - **불변 객체 (Immutable Object)**
 
-  객체 지향 프로그래밍에 있어서 불변 객체(Immutable Object)는 생성 후 그 상태를 바꿀 수 없는객체를 말한다. 반대 개념으로는 가변 객체(Mutable Object)로 생성 후에도 상태를 변경할 수 있다. 경우에 따라 내부에서 사용하는 속성이 변하더라도 외부에서 그 객체의 상태가 변하지 않는 것처럼 보인다면, 이는 불변 객체로 간주된다. 예를 들어 비용이 큰 계산에서 그 결과를 캐시에 임시로 저장하는 메모이제이션(Memoization)의 경우 그 객체는 여전히 불변하다. 불변 객체의 장점은 복제, 비교를 위한 조작을 단순하할 수 있고 성능 개선에 도움을 준다. 만일 객체가 변경 가능한 데이터를 많이 가지고 있는 경우, 객체가 변경될 때 새로운 객체와 데이터를 생성해야하기 때문에 성능에 영향을 끼친다. 불변 객체는 객체를 복제할 때 객체 전체가 아닌 단순한 참조 복사가 이루어지며, 참조는 보통 객체 자체보다 훨씬 작은 크기를 지닌다. 일반적으로 포인터 크기 정도이며, 이는 메모리 사용이 절약되는 장점을 가진다. 반대로 가변 객체의 참조를 가지고 있는 경우, 어떤 특정 장소에서 객체를 변경하면 참조를 공유하는 모든 장소에서 그 영향을 받는다. 때문에 멀티 스레드 프로그래밍에서는 불변 객체가 유용하다. 불변의 특징을 가지고 있기 때문에 복수의 스레드 중 특정 스레드가 데이터를 변경하여도 다른 스레드에게 영향을 주지 않는다. 베타 제어(Mutual Exclusion)가 필요하지 않고 불변 객체가 가변 객체보다 스레드 세이프(Thread-Safe)하다.
+  객체 지향 프로그래밍에 있어서 불변 객체(Immutable Object)는 생성 후 그 상태를 바꿀 수 없는 객체를 말한다. 반대 개념으로는 가변 객체(Mutable Object)로 생성 후에도 상태를 변경할 수 있다. 경우에 따라 내부에서 사용하는 속성이 변하더라도 외부에서 그 객체의 상태가 변하지 않는 것처럼 보인다면, 이는 불변 객체로 간주된다. 예를 들어 비용이 큰 계산에서 그 결과를 캐시에 임시로 저장하는 메모이제이션(Memoization)의 경우 그 객체는 여전히 불변하다. 불변 객체의 장점은 복제, 비교를 위한 조작을 단순하할 수 있고 성능 개선에 도움을 준다. 만일 객체가 변경 가능한 데이터를 많이 가지고 있는 경우, 객체가 변경될 때 새로운 객체와 데이터를 생성해야하기 때문에 성능에 영향을 끼친다. 불변 객체는 객체를 복제할 때 객체 전체가 아닌 단순한 참조 복사가 이루어지며, 참조는 보통 객체 자체보다 훨씬 작은 크기를 지닌다. 일반적으로 포인터 크기 정도이며, 이는 메모리 사용이 절약되는 장점을 가진다. 반대로 가변 객체의 참조를 가지고 있는 경우, 어떤 특정 장소에서 객체를 변경하면 참조를 공유하는 모든 장소에서 그 영향을 받는다. 때문에 멀티 스레드 프로그래밍에서는 불변 객체가 유용하다. 불변의 특징을 가지고 있기 때문에 복수의 스레드 중 특정 스레드가 데이터를 변경하여도 다른 스레드에게 영향을 주지 않는다. 베타 제어(Mutual Exclusion)가 필요하지 않고 불변 객체가 가변 객체보다 스레드 세이프(Thread-Safe)하다.
 
 - **String**
 
@@ -253,7 +234,7 @@ JVM의 전체적인 흐름은 아래와 같다.
 
 -----
 
-### Collection
+## Collection
 
 Java Collection에는 List, Map, Set 인터페이스를 기준으로 여러 구현체가 있으며, Stack, Queue 인터페이스도 존재한다. 이를 사용하는 이유는 다수의 데이터를 다루는데 표준화된 클래스를 제공해주기 때문에 사용하기 쉽고 데이터 구조를 직접 구현하지 않아도 된다. 또한 배열과는 다르게 객체를 보관하기 위한 공간을 미리 정하지 않아도 됨으로, 상황에 따라 객체의 수를 동적으로 정할 수 있기에 프로그램의 공간적인 효율을 높인다. 
 
@@ -271,7 +252,7 @@ Java Collection에는 List, Map, Set 인터페이스를 기준으로 여러 구�
 
 -----
 
-### Annotation
+## Annotation
 
 본래의 주석이라는 뜻으로, 인터페이스를 기반으로 한 문법이다. 실질적인 기능은 주석과 다르지만, 어노테이션을 코드에 추가함으로써 클래스에 특별한 의미를 부여하거나 기능을 주입하는 역할을 한다. 어노테이션은 컴파일 타임에 처리될 수 있으며, 자바의 리플렉션을 거쳐서 런타임에 처리될 수도 있다. 리플렉션은 실행 중인 자바 클래스의 정보 조회 기능을 지원하며, 해당 클래스의 구성 정보를 확인할 수 있다. 자바는 리플렉션 기능이 있기 때문에 어노테이션을 더 효율적으로 활용할 수 있다. 어노테이션은 크게 Built-In Annotation, Meta Annotation, Costom Annotation으로 나뉜다.
 
@@ -291,13 +272,13 @@ Java Collection에는 List, Map, Set 인터페이스를 기준으로 여러 구�
 
 -----
 
-### Reflection
+## Reflection
 
 리플렉션은 구체적인 클래스 타입을 알지 못해도, 특정 클래스의 메소드, 타입, 변수들을 접근할 수 있게 해주는 자바 API이다. IDE의 자동 완성 기능도 리플렉션의 일종이다. 코드를 먼저 작성하고 실행 시점에 확인해서 활용할 수 있도록 지원하는 메커니즘이다.
 
 -----
 
-### Generic
+## Generic
 
 자바의 안정성을 담당하며, 다양한 타입의 객체를 다루는 메서드나 컬렉션 클래스에서 사용한다. 컴파일 과정에서 타입 체크 기능을 지원하며, 형 변환의 불편함을 감소시킨다. 코드가 간결해지며, 클래스를 정의할 때 데이터 타입을 확정하는 것이 아닌 인스턴스를 생성할 때 데이터 타입을 지정하는 기능을 말한다.
 
@@ -320,7 +301,7 @@ public class GenericDemo {
 
 -----
 
-### final
+## final
 
 클래스의 멤버 변수를 상수로 만들고자 할 때, 클래스 상수(static final)로 만들곤 한다. final은 프로그래밍 언어에서 'constant', '상수'와 동등한 의미를 갖는 키워드이며, 자바에서 final은 해당 entity가 오로지 한 번 할당될 수 있음을 의미한다.
 
@@ -369,7 +350,7 @@ private 메소드와 final 클래스의 모든 메소드는 명시하지 않아�
 
 -----
 
-### static
+## static
 
 static 키워드는 프로그래밍 언어에서 '전역', '정적'의 의미로 통용된다. 
 
@@ -383,7 +364,7 @@ static 키워드는 프로그래밍 언어에서 '전역', '정적'의 의미로
 
 - static 블록
 
-  클래스 내부에서 만들 수 있는 초기화 블록으로, 클래스가 초기화 될 때 실행되고, main() 보다 전저 수행된다. 
+  클래스 내부에서 만들 수 있는 초기화 블록으로, 클래스가 초기화 될 때 실행되고, main() 보다 먼저 수행된다. 
 
 - static import
 
@@ -391,7 +372,7 @@ static 키워드는 프로그래밍 언어에서 '전역', '정적'의 의미로
 
 -----
 
-### Abstract Class
+## Abstract Class
 
 추상 클래스(Abstract Class)는 인터페이스 역할도 하면서 구현체를 가지고 있는 클래스이다. 추상 클래스를 만들기 위해서는 class 앞에 ```abstract```라고 표기해야 한다. 또한 인터페이스와 같은 역할을 하는 메소드에도 ```abstract```를 붙인다. 추상 메소드는 구현체가 없으며, 추상 클래스를 상속하는 클래스에서 해당 추상 메소드를 구현해야 한다.
 
@@ -400,8 +381,7 @@ public abstract class Predator extends Animal {
   public abstract String getFood();
 }
 
-public class Tiger extends Predator implements 
-  Barkable {
+public class Tiger extends Predator implements Barkable {
   
   public String getFood(){
     return "apple";
@@ -438,7 +418,7 @@ public abstract class Predator extends Animal {
 
 -----
 
-### Interface
+## Interface
 
 인터페이스는 자바 프로그래밍 언어에서 클래스들이 구현해야 하는 동작을 지정하는데 사용되는 추상형이다. 이들은 프로토콜과 비슷하며, ```interface```라는 키워드를 사용하여 선언한다. 메소드 시그니처(반환 타입, 메소드 식별 이름, 파라미터 타입과 값)와 상수 선언(static과 final이 둘 다 선언된 변수 선언)만을 포함할수 있다. 인터페이스의 바디(body)는 추상 메소드를 포함하고 있지만 인터페이스 내의 모든 메소드들이 정의상 추상적이기 때문에 ```abstract```키워드가 필요하지 않다. 인터페이스는 노출된 행동들의 집합을 규정하므로 모든 메소드들은 암묵적으로 ```public```이다.
 
@@ -466,7 +446,7 @@ public class Lion implements Predator {
 
 -----
 
-### 추상 클래스와 인터페이스의 차이
+## 추상 클래스와 인터페이스의 차이
 
 추상 클래스는 구체화 시킬 구현체를 추상화시키는 기법이며, 인터페이스는 구현할 컴포넌트의 표준을 정의하는 것이다. 추상 클래스와 인터페이스는 상속받은 클래스 또는 구현하는 인터페이스 안에 있는 추상 메소드를 구현하도록 강제한다.
 
@@ -476,7 +456,7 @@ public class Lion implements Predator {
 
 -----
 
-### Overriding, Overloading
+## Overriding, Overloading
 
 - Overriding
 
@@ -488,7 +468,7 @@ public class Lion implements Predator {
 
 -----
 
-### Access Modifier
+## Access Modifier
 
 변수 또는 메소드의 접근 범위는 설정해주기 위해 사용하는 Java의 예약어를 의미한다.
 
@@ -501,7 +481,7 @@ public class Lion implements Predator {
 
 -----
 
-### Wrapper Class
+## Wrapper Class
 
 자바는 기본형(Primitive Type)과 참조형(Reference Type)으로 나뉘며, 데이터를 저장할 때 기본형 타입의 변수에 저장하거나 다양한 객체를 저장할 수 있는 컨테이너 역할을 하는 객체를 생성할 수 있다. 상황에 따라 기본형 타입을 객체로 사용하거나, 기본형 타입 값을 객체로 포장할 필요가 있다. 
 
@@ -515,7 +495,7 @@ public class Lion implements Predator {
 
 -----
 
-### Boxing, UnBoxing
+## Boxing, UnBoxing
 
 Wrapper Class는 산술 연산을 위해 정의된 클래스가 아니기 때문에, 해당 클래스의 인스턴스에 저장된 값을 변경하는 것이 불가능하다. 값을 저장하는 새로운 객체의 생성 및 참조만 가능하다.
 
@@ -528,7 +508,7 @@ int age2 = age.intValue();
 
 -----
 
-### AutoBoxing, AutoUnBoxing
+## AutoBoxing, AutoUnBoxing
 
 JDK 1.5 버전 이후에 자동으로 Boxing과 UnBoxing을 처리하는 기능을 제공하며, 이것이 AutoBoxing과 AutoUnBoxing이라 하며, 아래의 코드와 같이 작성해도 컴파일 에러가 발생하지 않은 이유가 AutoBoxing과 AutoUnBoxing의 기능을 지원하기 때문이다.
 
@@ -544,7 +524,7 @@ int age3 = age2;
 
 -----
 
-### Call By Value & Call By Reference
+## Call By Value & Call By Reference
 
 - Call By Value
 
@@ -590,7 +570,7 @@ int age3 = age2;
 
   함수의 파라미터로 참조 값을 전달하여 변경 사항이 함수를 호출한 곳에서 적용되는 방식을 의미한다.
 
-결과적으로 이를 정리하면 자바는 Call By Value이다. 자바의 창시자 "제임스 고슬링"은 Value의 메커니즘을 변수의 타입에 따라 다르게 적용하도록 설계했다. 자바의 자료형에는 기본 자료형과 참조 자료형이 있고, 기본 자료형의 경우 해당 변수를 파라미터로 넘길 때 값을 넘기고, 참조 자료형의 경우 변수를 파리미터로 넘길 때 참조 값을 넘기는 것처럼 한다. 하지만 해당 변수가 참조 값인 경우에는 그 변수가 가지는 값이 참조 값(주소 값)이므로 Call By Value에 의한 참조 값 전달이 이루어 진다. 결과적으로 Value란 객체의 래퍼런스 또는 원시형 타입의 값을 의미한다.
+결과적으로 이를 정리하면 자바는 Call By Value이다. 자바의 창시자 **제임스 고슬링**은 Value의 메커니즘을 변수의 타입에 따라 다르게 적용하도록 설계했다. 자바의 자료형에는 기본 자료형과 참조 자료형이 있고, 기본 자료형의 경우 해당 변수를 파라미터로 넘길 때 값을 넘기고, 참조 자료형의 경우 변수를 파리미터로 넘길 때 참조 값을 넘기는 것처럼 한다. 하지만 해당 변수가 참조 값인 경우에는 그 변수가 가지는 값이 참조 값(주소 값)이므로 Call By Value에 의한 참조 값 전달이 이루어진다. 결과적으로 Value란 객체의 래퍼런스 또는 원시형 타입의 값을 의미한다.
 
 메소드에 기본형 값(Primitive Type)을 전달하는 것과 참조형 값(Reference Type)을 전달하는 것은 큰 차이가 있다. 메소드로 참조형 값을 전달하는 경우 메소드에서 객체의 객체 변수(속성) 값을 변경할 수 있다.
 
@@ -606,7 +586,7 @@ public class Counter {
   
   public static void main (String[] args) {
     Counter counter = new Counter();
-    System.out.println("before update: " + counter.count);	//	 before update: 0
+    System.out.println("before update: " + counter.count);	//  before update: 0
     Updater updater = new Updater();
     updater.update(counter.count);
     System.out.println("after update: " + counter.count);	//	after update: 0
@@ -640,7 +620,7 @@ public class Counter {
 
 -----
 
-### Exception
+## Exception
 
 컴퓨터 과학에서 예외란 "프로그램 실행 중에 정상적인 프로그램의 흐름에 어긋나는 이벤트"를 예외라 한다. 프로그램이 실행되는 도중에 메모리 부족과 같은 오류가 발생하는 것의 의미하며, 자바는 이를 처리하고자 예외라는 객체를 통해 프로그래머가 예외를 예상하고 핸들링 할 수 있도록 기능을 지원한다.
 
